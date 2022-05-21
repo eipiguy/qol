@@ -1,0 +1,106 @@
+# snippet trigger_word [ "description" [ options ] ]
+# trigger_word required, decription and options optional
+# trigger_word with spaces must be wrapped
+
+# Misc #######################################################################
+
+# Header #####################################################################
+
+snippet i "generic include"
+#include $0
+endsnippet
+
+snippet io "input/output stream"
+#include <iostream>
+$0
+endsnippet
+
+# Variables ##################################################################
+
+snippet c "constant prefix"
+const $0
+endsnippet
+
+snippet d "double"
+double
+endsnippet
+
+snippet ld "long double"
+long double
+endsnippet
+
+# Conditionals & Loops #######################################################
+
+snippet f "basic for loop"
+for(int i=0;i<${1:n};++i)\{$0\}
+endsnippet
+
+snippet for "extended for loop"
+for(int ${1:i}=${2:0};$1<${3:n};++$1)\{$0\}
+endsnippet
+
+snippet w "while loop"
+while(${1:true})\{$0\}
+endsnippet
+
+# STL ########################################################################
+
+snippet s "string"
+std:: 
+endsnippet
+
+snippet st "string"
+std::string $0
+endsnippet
+
+snippet ci "command in"
+std::cin >> $0 
+endsnippet
+
+snippet co "command out"
+std::cout << $0
+endsnippet
+
+snippet \n "cout newline"
+<< std::endl;
+$0
+endsnippet
+
+snippet v "generic vector"
+std::vector<${1:type}> $0
+endsnippet
+
+snippet vi "int vector"
+std::vector<int> $0
+endsnippet
+
+snippet vd "double vector"
+std::vector<double> $0
+endsnippet
+
+# Comments ###################################################################
+
+snippet // "extra large comment line"
+///////////////////////////////////////////////////////////////////////////////
+$0
+endsnippet
+
+snippet /# "large comment line"
+//###########################################################################//
+$0
+endsnippet
+
+snippet /* "medium comment line"
+/*****************************************************************************/
+$0
+endsnippet
+
+snippet /= "small comment line"
+//===========================================================================//
+$0
+endsnippet
+
+snippet /- "extra small comment line"
+//---------------------------------------------------------------------------//
+$0
+endsnippet

@@ -1,0 +1,90 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'ervandew/supertab'              " allows for tab binding with both ycm and snips
+Plugin 'ycm-core/YouCompleteMe'         " autocomplete
+Plugin 'SirVer/ultisnips'               " advanced hotkeys
+Plugin 'morhetz/gruvbox'                " color scheme
+Plugin 'powerline/powerline'            " powerline status bar
+Plugin 'tpope/vim-fugitive'             " git integration
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Gruvbox Color Scheme
+let g:gruvbox_italic=1 " this line needs to come before colorscheme
+colorscheme gruvbox
+set background=dark
+set termguicolors
+syntax on
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/Dropbox/saves/vim/snips/']
+
+
+
+" Indentation
+set expandtab           " all tabs are written as spaces
+set tabstop=4           " columns per tab
+set softtabstop=4       " columns per tab-press in insert mode
+set shiftwidth=4        " columns for text auto-indentation
+
+" Folding
+set foldmethod=manual 	" collapsing/hiding sections of a document
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" Key Settings
+set backspace=indent,eol,start 	" let backspace work through lines
+set clipboard=unnamed           " Include Windows Clipboard
+
+" Line numbers
+set number
+set ruler
+
+" Search
+set hlsearch
+
+" Spell Check
+set spell
+set spelllang=en_us
+set spellfile=$HOME/Dropbox/saves/vim/spell/en.utf-8.add
+
+" Terminal Debugging
+packadd! termdebug

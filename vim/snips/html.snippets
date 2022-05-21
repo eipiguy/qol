@@ -1,0 +1,126 @@
+# snippet trigger_word [ "description" [ options ] ]
+# trigger_word required, decription and options optional
+# trigger_word with spaces must be wrapped
+
+snippet '<[a-z]+[0-9]*' "generic tag builder" r
+<`!p snip.rv = match.group()[1:]`$1>
+        $0
+</`!p snip.rv = match.group()[1:]`>
+endsnippet
+
+snippet '>[a-z]+[0-9]*' "generic inline tag builder" ir
+<`!p snip.rv = match.group()[1:]`$1>$0</`!p snip.rv = match.group()[1:]`>
+endsnippet
+
+snippet a
+<a href="$1">$0</a>
+endsnippet
+
+snippet aa
+<a href="#" onclick="${1:load}"></a>
+endsnippet
+
+snippet div
+<div class="$1">
+        $0
+</div>
+endsnippet
+
+snippet row
+<div id="$1" class="row">
+        $0
+</div>
+endsnippet
+
+snippet col
+<div id="$2" class="col-ss-${1:12} col-s-${2:$1} col-${3:$2} col-l-${4:$3} col-ll-${5:$4}">
+        $0
+</div>
+endsnippet
+
+snippet css
+<link rel="stylesheet" href="${1:./css/${2:common}}.css">
+$0
+endsnippet
+
+snippet open
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/common.css">
+
+        <title>
+                ${1:TITLE}
+        </title>
+</head>
+<body>
+        $0
+</body>
+</html>
+endsnippet
+
+snippet template
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/common.css">
+        <link rel="stylesheet" href="./css/grid.css">
+        <link rel="stylesheet" href="./css/menu.css">
+
+        <title>
+                TITLE
+        </title>
+</head>
+<body>
+        <div id="container" class="container row">
+                <div id="head" class="head col-ss-12 col-s-12 col-12 col-l-12 col-ll-12">
+                                <div id="pic" class="pic">
+                                        <picture>
+                                                <source srcset="./img/whale.png">
+                                                <img src="./img/whale.png" alt="PIC">
+                                        </picture>
+                                </div>
+                                <div id="name" class="name">
+                                        <h2>NAME<h2>
+                                </div>
+                </div>
+                <div id="neck" class="neck col-ss-12 col-s-12 col-12 col-l-2 col-ll-1">
+                        <div id="menuc" class="menuc row">
+                                <div id="mbut" class="mbut col-ss-1 col-s-12 col-12 col-l-12 col-ll-12" onclick="mClick()">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                        <div class="bar3"></div>
+                                </div>
+                                <div id="menub" class="menub col-ss-11 col-s-12 col-12 col-l-12 col-ll-12" onclick="mClick()">
+                                        <h3>MENUB</h3>
+                                </div>
+                                <div id="closeb" class="closeb col-ss-11 col-s-12 col-12 col-l-12 col-ll-12" onclick="mClick()">
+                                        <h3>CLOSEB</h3>
+                                </div>
+                        </div>
+                        <div id="menu" class="menu row">
+                                <ul>
+                                        <li><a class="active" href="template.html">Home</a></li>
+                                        <li><a href="link.html">Link</a></li>
+                                </ul>
+                        </div>
+                </div>
+                <div id="content" class="content col-ss-12 col-s-12 col-12 col-l-10 col-ll-11">
+                        CONTENT
+                </div>
+                <div id="foot" class="foot col-ss-12 col-s-12 col-12 col-l-12 col-ll-12">
+                        FOOT
+                </div>
+        </div>
+        <script>
+                function mClick() \{
+                        document.getElementById("mbut").classList.toggle("change");
+                        document.getElementById("menuc").classList.toggle("change");
+                        document.getElementById("neck").classList.toggle("change");
+                \}
+        </script>
+</body>
+</html>
+endsnippet
